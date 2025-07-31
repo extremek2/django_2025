@@ -3,7 +3,7 @@ from .models import Library
 
 # Create your views here.
 
-def index_Library(request):
+def index_library(request):
     # db 내에서 select * from Library 와 같은 결과
     books_all = Library.objects.all()
     return render(request,
