@@ -7,6 +7,8 @@ class Post(models.Model):
     content = models.TextField()
     create_date = models.DateTimeField(auto_now=True, null=True)
     modified_date = models.DateTimeField(auto_now=False, null=True)
+    uploaded_image = models.ImageField(upload_to='media/',
+                                       blank=True)
 
     def __str__(self):
         return f'게시글제목: {self.title} - 게시글 내용 - {self.content}'

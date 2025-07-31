@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>글쓰기 페이지</title>
+</head>
+<body>
+postform.html 입니다.
+글쓰는 화면입니다.
+http://127.0.0.1:8000/blog/create/
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ postform }}
+        <input type="submit">
+    </form>
+
+</body>
+</html>
