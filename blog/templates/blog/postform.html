@@ -1,18 +1,28 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>글쓰기 페이지</title>
-</head>
-<body>
-postform.html 입니다.
-글쓰는 화면입니다.
-http://127.0.0.1:8000/blog/create/
+{% extends 'blog/base.html' %}
+
+{% block main-area %}
+{#<!DOCTYPE html>#}
+{#<html lang="ko">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>글쓰기 페이지</title>#}
+{#</head>#}
+
+{#<body>#}
+{#<h1> postform.html 입니다.<h1></h1>#}
+<div>
+    <!-- action="/blog/create/" 생략됨-->
+
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ postform }}
-        <input type="submit">
+        <div>작성자</div>{{ postform.author }}
+        <div>글 제목</div>{{ postform.title }}
+        <div>글 내용</div>{{ postform.content }}
+        <div>분류</div>{{ postform.category }}
+        <div>이미지 업로드</div>{{ postform.uploaded_image }}
+        <div>파일 업로드</div>{{ postform.uploaded_file }}
+        <input type="submit" >
     </form>
+</div>
 
-</body>
-</html>
+{% endblock %}
