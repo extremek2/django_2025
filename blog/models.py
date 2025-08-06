@@ -17,10 +17,10 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, blank=True)
-    create_date = models.DateTimeField(auto_now=True, null=True)
-    modified_date = models.DateTimeField(auto_now=False, null=True)
-    uploaded_image = models.ImageField(upload_to='media/', blank=True)
-    uploaded_file = models.FileField(upload_to='media/', blank=True)
+    create_date = models.DateTimeField(auto_now_add=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True, null=True)
+    uploaded_image = models.ImageField(upload_to='media/', blank=True, null=True)
+    uploaded_file = models.FileField(upload_to='media/', blank=True, null=True)
 
     def __str__(self):
         return f'게시글제목: {self.title} - by {self.author} - 게시글 내용 - {self.content}'
