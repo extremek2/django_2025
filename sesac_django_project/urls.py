@@ -32,6 +32,7 @@ urlpatterns = [
     path('library/', include('library.urls')),
     path('about_me/', include('single_pages.urls')),
     path('example/', include('example.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block main-area %}
+<div>
+  <h1 style="color:red;">참말로 삭제하시겠습니까?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit">
+  </form>
+</div>
+{% endblock %}

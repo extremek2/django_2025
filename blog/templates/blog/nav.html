@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <!-- Navigation  -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid container">
@@ -27,12 +28,20 @@
               </ul>
           </ul>
           <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-              <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Log-in
-                </button>
-              </li>
+
+              {% if user.is_authenticated %}
+                <li class="nav-item">{{ user.username }}님 반갑습니다.</li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/accounts/logout/">로그아웃</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Log-in
+                  </button>
+                </li>
+              {% endif %}
           </ul>
         </div>
       </div>
@@ -48,6 +57,7 @@
       </div>
       <div class="modal-body">
         제발 로그인 하세요.
+        <a role="button" href="{% provider_login_url 'google' %}">google 로그인</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

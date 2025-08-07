@@ -14,4 +14,4 @@ def index_library(request):
 #     post_detail = Post.objects.get(pk=pk)
 #     return render(request,
 #                   template_name='library/detail.html',
-#                   context={'post2': post_detail})
+#                   context={'post': post_detail})
